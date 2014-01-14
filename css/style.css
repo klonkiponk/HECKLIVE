@@ -180,9 +180,53 @@ body {
   margin-top: 0;
   border-bottom-color: red; }
 
-/* line 46, ../sass/_content.scss */
-.item.bigItem {
-  margin-right: 15px; }
+/* line 47, ../sass/_content.scss */
+.imageContainer img {
+  max-width: 150px;
+  max-height: 150px; }
+
+/* line 52, ../sass/_content.scss */
+.image.well {
+  padding: 4px;
+  min-height: 0;
+  margin-bottom: 4px; }
+
+/* line 57, ../sass/_content.scss */
+.imageAlignment {
+  text-align: center; }
+
+/* line 61, ../sass/_content.scss */
+.imageControlButtons {
+  text-align: right;
+  margin-top: 4px; }
+
+/* line 66, ../sass/_content.scss */
+section.newsfeed .imageControlButtons {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+  /* line 72, ../sass/_content.scss */
+  section.newsfeed .imageControlButtons:hover {
+    opacity: 1.0; }
+
+/* line 78, ../sass/_content.scss */
+.fa-trash-o:before {
+  color: red; }
+
+/* line 84, ../sass/_content.scss */
+.fa-chevron-up:before,
+.fa-chevron-down:before,
+.fa-plus {
+  color: #9acfea; }
+
+/* line 89, ../sass/_content.scss */
+.fa-plus:hover:before {
+  color: #9acfea; }
 
 @font-face {
   font-family: "DIN";
@@ -2762,42 +2806,6 @@ h1, h2, h3, h4, h5, h6 {
   -ms-perspective-origin: 0% 0%;
   -o-perspective-origin: 0% 0%;
   perspective-origin: 0% 0%; }
-
-/* line 7, ../sass/_forms.scss */
-.imageContainer img {
-  width: 100px; }
-/* line 10, ../sass/_forms.scss */
-.imageContainer .image {
-  border: 1px solid #ccc;
-  background: #f2f2f2;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  margin-bottom: 4px;
-  padding: 4px; }
-/* line 17, ../sass/_forms.scss */
-.imageContainer input[type=file]:focus {
-  outline-color: transparent;
-  outline-offset: -2px;
-  outline-style: auto;
-  outline-width: 5px; }
-
-/* line 24, ../sass/_forms.scss */
-.imageControlButtons {
-  text-align: right;
-  margin-top: 4px; }
-  /* line 28, ../sass/_forms.scss */
-  .imageControlButtons .fa-trash-o:before {
-    color: red; }
-  /* line 33, ../sass/_forms.scss */
-  .imageControlButtons .fa-chevron-up:before, .imageControlButtons .fa-chevron-down:before {
-    color: #9acfea; }
-
-/* line 40, ../sass/_forms.scss */
-.addImageFormField.fa-plus:before {
-  color: #9acfea; }
 
 /* line 1, ../sass/_chat.scss */
 .chatUser {

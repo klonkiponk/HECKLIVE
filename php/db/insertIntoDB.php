@@ -42,107 +42,63 @@ $header = stripslashes($header);
 $subHeader = htmlentities($subHeader);
 $subHeader = stripslashes($subHeader);
 
-
-
-
-
-
-
-
-if(!empty($_FILES)){	
-	$folder = $category."/".$subCategory."/".$header."/".$subHeader.date("Ym")."/";
-	$folder = str_replace(' ','',$folder);
-	$structure = "../../images/".$folder;
-	$imagefolder = $folder;
-	if (!mkdir($structure, 0777, true)) { //true = recursive
-		//alertDanger('Erstellung der Verzeichnisse schlug fehl...');
-	}
-}
-
-$k = 0;
-$images = "";
-$uploadedFile = 0;
-foreach($imageOrder as $file){
-	if($file == "newUpload"){
-		
-		$tmp 		= $_FILES['images']['tmp_name'][$uploadedFile];
-		$imageType 	= $_FILES['images']['type'][$uploadedFile];
-		$size		= $_FILES['images']['size'][$uploadedFile];
-		$name		= $_FILES['images']['name'][$uploadedFile];
-		switch ($imageType) {
-		    case "image/png":
-		        $imageType = ".png";
-		        break;
-		    case "image/jpeg":
-		        $imageType = ".jpg";
-		        break;
-		}
-		$filename = explode(".",$name);
-		$filename = $filename[0];
-		$path = "/home2/admn1772/public_html/hecklive/images/".$folder.$filename.$imageType;
-		
-		if(move_uploaded_file($tmp, $path)){
-			$thumb = "<img style='width:100px;' src='images/$folder$filename$imageType'>";
-			//alertSuccess("Uploaded The Image Successfully".$thumb);
-		} else {
-			//alertDanger("failed to Upload Image");
-		}
-		$file = $filename.$imageType;
-		$uploadedFile++;		
-	} else {
-		$file = $file;
-	}
-	//alertInfo($file);
-	$images .= $file.",";
-}
-
-/*
-if(!empty($_FILES)){	
-	$folder = $category."/".$subCategory."/".$header."/".$subHeader.date("Ym")."/";
-	$folder = str_replace(' ','',$folder);
-	$structure = "../../images/".$folder;
-	$imagefolder = $folder;
-	if (!mkdir($structure, 0777, true)) { //true = recursive
-    	//alertDanger('Erstellung der Verzeichnisse schlug fehl...');
-	}
-	
-	$countOfImages = count($_FILES['images']['tmp_name']);
-	if($countOfImages == 0){
-		$countOfImages = 1;
-	}
+if($_FILES['images']['error'][0] == 4){
+	alertInfo("keine Datei gewählt");
 	$images = "";
-	$i = 0;
-	while($i < $countOfImages){
-		$tmp 		= $_FILES['images']['tmp_name'][$i];
-		$imageType 	= $_FILES['images']['type'][$i];
-		$size		= $_FILES['images']['size'][$i];
-		switch ($imageType) {
-		    case "image/png":
-		        $imageType = ".png";
-		        break;
-		    case "image/jpeg":
-		        $imageType = ".jpg";
-		        break;
-		}
-		$filename = $i;
-		$path = "/home2/admn1772/public_html/hecklive/images/".$folder.$filename.$imageType;
-		
-		if(move_uploaded_file($tmp, $path)){
-			$thumb = "<img style='width:100px;' src='images/$folder$filename$imageType'>";
-			alertSuccess("Uploaded The Image Successfully".$thumb);
+	$imagefolder = "";
+	} else {	
+	$folder = $category."/".$subCategory."/".$header."/".$subHeader.date("Ym")."/";
+	$folder = str_replace(' ','',$folder);
+	$structure = "../../images/".$folder;
+	$imagefolder = $folder;
+	if (file_exists($structure)){
+		//alertInfo('Already Existing');
+	} else {
+		if (!mkdir($structure, 0777, true)) { //true = recursive
+			//alertDanger('Tried to create');
 		} else {
-			alertDanger("failed to Upload Image");
-		}		
-		$i++;
-		//alertInfo($path);
-		$images .= $filename.$imageType.",";
+			//alertSuccess("creation Successful");
+		}
 	}
+	$k = 0;
+	$images = "";
+	$uploadedFile = 0;
+	foreach($imageOrder as $file){
+		if($file == "newUpload"){
+			
+			$tmp 		= $_FILES['images']['tmp_name'][$uploadedFile];
+			$imageType 	= $_FILES['images']['type'][$uploadedFile];
+			$size		= $_FILES['images']['size'][$uploadedFile];
+			$name		= $_FILES['images']['name'][$uploadedFile];
+			switch ($imageType) {
+			    case "image/png":
+			        $imageType = ".png";
+			        break;
+			    case "image/jpeg":
+			        $imageType = ".jpg";
+			        break;
+			}
+			$filename = explode(".",$name);
+			$filename = $filename[0];
+			$path = "/home2/admn1772/public_html/heckhaus/images/".$folder.$filename.$imageType;
+			
+			if(move_uploaded_file($tmp, $path)){
+				$thumb = "<img style='width:100px;' src='images/$folder$filename$imageType'>";
+				alertSuccess("Uploaded The Image Successfully".$thumb);
+			} else {
+				alertDanger("failed to Upload Image");
+			}
+			$file = $filename.$imageType;
+			$uploadedFile++;		
+		} else {
+			$file = $file;
+		}
+		//alertInfo($file);
+		$images .= $file.",";
+	}
+	$images = rtrim($images,",");	
 }
-*/
 
-
-//remove last COMMA from the $images string
-$images = rtrim($images,",");
 
 
 
@@ -154,8 +110,6 @@ $images = rtrim($images,",");
 
 if(!empty($id)){
 	$sql = "UPDATE article SET type=?, content=?, images=?, imagefolder=?, header=?, subHeader=?, category=?, subCategory=? WHERE id = $id";	//END OF QUERY FOR AN EDIT FORM	
-	//preFormat($_POST);
-	//echo $sql;
 } else {
 	$sql = "INSERT INTO article (type, content, images, imagefolder, header, subHeader, category, subCategory) VALUES (?,?,?,?,?,?,?,?)";
 }//END OF QUERIE FOR A NEW FORM!!!

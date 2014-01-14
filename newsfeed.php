@@ -1,6 +1,11 @@
 <div class="page-header">
 	<h1>Newsfeed</h1>
 </div>
+<div id="newsfeedMessage">
+	
+</div>
+
+
 
 <?php include_once("etc/constants.php"); ?>
 <?php include_once("php/helpers.php"); ?>
@@ -91,6 +96,10 @@ if ($smallItems === 1){
 //preFormat($smallItems);
 $output .= <<<ARTICLE
 	<div class="col-md-3 $type">
+		<div class="imageControlButtons">
+			<span class="btn btn-default fa fa-wrench editAnExistingPostButton" data-id="$id"></span>
+			<span class="btn btn-default fa fa-trash-o deleteAnExistingPostButton" data-id="$id"></span>			
+		</div>
 		$images
 		<h2>$header /</h2>
 		<h3>$subHeader</h3>
@@ -100,15 +109,12 @@ $output .= <<<ARTICLE
 			</div>
 			<span class="toggler" data-id="$identifier">+ / - <span class="more"></span></span> <br>
 		</section>
-		<div class='imageControlButtons'>
-			<span class="btn btn-default fa fa-wrench editAnExitingPostButton" data-id="$id"></span>
-		</div>
 	</div>
 
 ARTICLE;
 
 if ($smallItems%4 === 0){
-	$output .= '</div><div class="row">';
+	$output .= '</div><hr><div class="row">';
 }
 if($smallItems == $numberOfSmallItems->num_rows){
 	$output .= "</div>";
@@ -124,15 +130,16 @@ $output .= <<<ARTICLE
 			$images
 		</div>
 		<div class="col-md-6 medTxt">
+			<div class='imageControlButtons'>
+				<span class="btn btn-default fa fa-wrench editAnExistingPostButton" data-id="$id"></span>
+				<span class="btn btn-default fa fa-trash-o deleteAnExistingPostButton" data-id="$id"></span>
+			</div>
 			<h2>$header / <small>$subHeader</small></h2>
 			<section class="details">
 			<div class="toggled" data-id="$identifier">
 				$content
 			</div>
 			 <span class="toggler" data-id="$identifier">+ / - <span class="more"></span></span> </section>
-		</div>
-		<div class='imageControlButtons'>
-				<span class="btn btn-default fa fa-wrench editAnExitingPostButton" data-id="$id"></span>		
 		</div>
 		<div class="clearfix"></div>
 	</div>

@@ -28,13 +28,21 @@ if(!empty($id)){
 
 	$imageArray = explode(",",$imageArray);
 	foreach($imageArray as $image){
-		$images .= "<div class='image'><input type='hidden' name='imageOrder[]' value='$image'><input type='hidden' value='$image' name='images[]'><img src=\"images/$imagefolder$image\">".'
-				<div class="imageControlButtons">
-					<span class="btn btn-default fa fa-trash-o removeImage"></span>
-					<span class="btn btn-default fa fa-chevron-up switchOrderUp"></span>
-					<span class="btn btn-default fa fa-chevron-down switchOrderDown"></span>				
-				</div>
-</div>';		
+		$images .= "
+		<div class='image well'>
+			<input type='hidden' name='imageOrder[]' value='$image'>
+			<input type='hidden' value='$image' name='images[]'>
+			<div class='imageAlignment'>
+				<img src=\"images/$imagefolder$image\">
+			</div>
+			".'
+			<div class="imageControlButtons">
+				<span class="btn btn-default fa fa-trash-o removeImage"></span>
+				<span class="btn btn-default fa fa-chevron-up switchOrderUp"></span>
+				<span class="btn btn-default fa fa-chevron-down switchOrderDown"></span>				
+			</div>
+		</div>
+		';		
 	}
 
 
@@ -127,7 +135,7 @@ $output = <<<FORM
 		<label for="images">Images (FIRST ONE IS THUMBNAIL)</label>
 		<div class="imageContainer">
 			$images
-			<div class="image">
+			<div class="image well">
 				<input type="hidden" name="imageOrder[]" value="newUpload">
 				<input type="file" class="form-control" name="images[]" id="images">
 				<div class='imageControlButtons'>
