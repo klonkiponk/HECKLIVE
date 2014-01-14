@@ -1,9 +1,21 @@
 <div class="page-header">
 	<h1>Newsfeed</h1>
 </div>
+
 <?php include_once("etc/constants.php"); ?>
 <?php include_once("php/helpers.php"); ?>
 <?php include_once("php/inc.db.php"); ?>
+
+<?php 
+	
+	$info = "Bitte einfach mal mit der Maus nach links in Menue fahren fuer Animation<br>Zum Test des CMS den Schraubenschluessel beim Artikel druecken...<br><br>
+	Viel Spass";
+	
+?>
+
+<?php alertInfo($info); ?>
+
+
 <?php
 	$sql = "SELECT * FROM article ORDER BY type";
 	$sqlNumberOfSmallItems = "SELECT * FROM article WHERE type='smallItem'";	

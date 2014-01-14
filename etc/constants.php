@@ -1,8 +1,8 @@
 <?php
 	date_default_timezone_set("UTC");
 	define ('DBHOST','localhost');
-	define ('DBUSER','root');
-	define ('DBPASSWORD','root');
-	define ('DATABASE','chat');
-	define ('DEBUG','1');
+	define ('DBUSER','admn1772_heckliv');
+	define ('DBPASSWORD','heckliv');
+	define ('DATABASE','admn1772_hecklive');
+	define ('DEBUG','0');
 ?>

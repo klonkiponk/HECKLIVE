@@ -126,3 +126,8 @@
 [13-Jan-2014 11:53:47 UTC] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home2/admn1772/public_html/hecklive/php/db/insertIntoDB.php on line 54
 [13-Jan-2014 11:53:59 UTC] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home2/admn1772/public_html/hecklive/php/db/insertIntoDB.php on line 54
 [13-Jan-2014 11:58:36 UTC] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home2/admn1772/public_html/hecklive/php/db/insertIntoDB.php on line 57
+[14-Jan-2014 14:00:01 UTC] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home2/admn1772/public_html/hecklive/php/db/insertIntoDB.php on line 57
+[14-Jan-2014 14:07:30 UTC] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home2/admn1772/public_html/hecklive/php/db/insertIntoDB.php on line 57
+[14-Jan-2014 14:07:45 UTC] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home2/admn1772/public_html/hecklive/php/db/insertIntoDB.php on line 57
+[14-Jan-2014 14:07:58 UTC] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home2/admn1772/public_html/hecklive/php/db/insertIntoDB.php on line 57
+[14-Jan-2014 14:08:08 UTC] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home2/admn1772/public_html/hecklive/php/db/insertIntoDB.php on line 57
