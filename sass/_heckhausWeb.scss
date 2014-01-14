@@ -1,0 +1,74 @@
+.medImg {
+	//padding-left: 0;
+	//background:green;
+}
+.medTxt {
+	//padding-left:0;
+	//background:lightgreen;
+	h2 {	
+		font-size: 18px;
+		margin-top: 0;
+	}
+}
+.smallItem {
+	//background:fuchsia;
+	img {
+		width:213px;
+		height:136px;
+	}
+	h2 {
+		margin-top: 7px;
+	}
+}
+.divider {
+	display: block;
+	background-image: url('../img/bggrey.gif');
+	width: 100% !important;
+	height: 100px;
+	clear: both;
+}
+a {
+	color:#333;
+	&:hover {
+		color:red;
+		text-decoration: none;
+	}
+}
+section.abstract {
+	margin-bottom: 25px;
+}
+hr {
+	border-top-color:#999;
+}
+
+.row hr {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.col-md-3 {
+	h2 {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		font-size: 16px;
+		font-weight: 600;
+	}
+	h3 {
+		color:#999;
+		margin-top: 0;
+		padding-top: 0;
+		font-size: 14px;
+	}
+}
+
+div.caption {
+	h2 {
+		font-size: 18px;
+		margin-top: 10px;
+	}
+}
+
+.bigItem , .smallItem {
+	h2,h3 {
+		text-transform: uppercase;
+	}
+}

@@ -1,0 +1,5 @@
+#wrapper {
+	overflow:hidden;
+    @include perspective(1200px);
+    @include perspective-origin(0% 0%);	
+}

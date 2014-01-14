@@ -1,0 +1,29 @@
+@import "compass";
+
+html {
+	//height:100%;
+}
+@mixin boxShadow1(){
+	@include box-shadow(0 0 10px #ccc);	
+}
+@mixin boxShadowRed(){
+	@include box-shadow(0 0 7px rgba(255,0,0,0.5));	
+}
+
+@import "body";
+@import "container";
+@import "menu";
+@import "pusher";
+@import "content";
+@import "fonts";
+@import "animations";
+@import "wrapper";
+@import "forms";
+@import "chat";
+@import "heckhausWeb";
+@import "lightbox";
+
+.form-control:focus {
+	@include boxShadowRed();
+	border:1px solid rgba(255,0,0,0.5);
+}

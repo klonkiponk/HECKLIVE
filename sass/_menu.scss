@@ -1,0 +1,65 @@
+#sideBarMenu {
+	background:#fff;
+	position:fixed;
+	left:0;
+	top:0;
+	padding-right: 15px !important;
+	z-index: 1;
+	padding:0;
+	height: 100%;
+	//width:200px;
+	@include transition(transform 1s,opacity 1s, box-shadow 1s);
+	@include transform-style(preserve-3d);	
+	@include transform(translate3d(-55%, 0, 0));	
+	//@include box-shadow(0 0 10px #999);
+	padding-top:45px;
+	opacity: 0.5;
+	&.open {
+		@include transform(translate3d(0, 0, 0) rotateY(0deg));
+		opacity: 1.0;
+		@include boxShadow1();
+		li {
+			cursor: pointer;
+			&:hover,&.active {
+				background:red;
+				color:#fff;
+				border-color:red;
+			}
+		}
+		.navbar-brand {
+			img {
+//				width:100%;
+			}
+		}			
+	}
+	.swiper {
+		//background:orange;
+		width:100%;
+		height:100%;
+	}
+	li {
+		cursor: pointer;
+		@include transition(background .5s,border-color .5s);
+		padding:0;		
+		&:hover,&.active {
+			background:rgba(255,0,0,0.2);
+			color:#fff;
+			border-color:rgba(255,0,0,0.2);
+			@include text-shadow(1px 1px 1px #999);
+		}
+	}
+	span {
+		display:block;
+		padding: 10px 15px;
+	}
+	.navbar-brand {
+		font-size:150%;
+		margin-bottom: 15px;
+		padding:0;
+		color:#999;
+		img {
+			width:40%;
+			@include transition(width 1.2s);
+		}
+	}
+}

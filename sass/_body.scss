@@ -1,0 +1,7 @@
+body {
+	position: relative;
+	@include transition(background 1.5s);
+	&.open {
+		background:#f1f1f1;
+	}
+}
