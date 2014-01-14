@@ -27,7 +27,7 @@
 	    </nav>
 	    <div id="pusher" class="pusher col-md-11 col-md-offset-1">
 			<div id="innerPusher">
-	        <article id="main">
+	        <article id="main">       
 				<section class="heckliveSection testForm">
 					<form id="myForm" method="post"> 
 					    Name: <input type="text" name="name" /> 

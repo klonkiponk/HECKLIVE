@@ -10,7 +10,6 @@
 	
 	$info = "Bitte einfach mal mit der Maus nach links in Menue fahren fuer Animation<br>Zum Test des CMS den Schraubenschluessel beim Artikel druecken...<br><br>
 	Viel Spass";
-	
 ?>
 
 <?php alertInfo($info); ?>
