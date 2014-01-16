@@ -5,8 +5,8 @@
 \************************************************/
 function slideInMenu(){
 	$("body").toggleClass("open");
-    $("#pusher").toggleClass("open");
-    $(".navbar").toggleClass("open");
+    $("#content").toggleClass("open");
+    $("#menu").toggleClass("open");
 }
 function clickInMenu(href){
     //$("#container").toggleClass("open");
@@ -36,12 +36,16 @@ function clickInMenu(href){
 
 }
 function validate(formData,jqForm){
-    //alert("test");
     var form = jqForm[0];
     if (!form.header.value || !form.subHeader.value) {
         alert('Please enter a value for header and subheader');
         return false;
     }
+
+
+	var queryString = $.param(formData); 
+	console.log(queryString);
+    
 }
 function refreshChat(){
 
@@ -69,21 +73,31 @@ function refreshChat(){
 
 \************************************************/
 $(document).ready(function() {
+	// !INITIAL
     $("#main section.newsfeed").css("display","block");
+	/*$("#newPost").load("newPost.php",function(){
+        var newArticleOptions = {
+            target:     "#message",
+            url:        "php/db/insertIntoDB.php",
+            type:       "POST",
+            beforeSubmit: validate
+        };
+        $("#insertArticleIntoDBForm").ajaxForm(newArticleOptions);
+    });    */
+    $("#main section.newPost").css("display","block");    
     var height = $(window).height();
     var width = $(window).width();
-    $("#wrapper").css("height",height);
-    $("#wrapper").css("width",width);
-    $("#pusher").css("height",height);
-    $("#chatWrapper").css("height",height-100);
-
+    $("body").css("height",height);
+    $("body").css("width",width);
+    $("#content").css("height",height);
+    //$("#chatWrapper").css("height",height-100);
     $(window).resize(function(){
             var height = $(window).height();
-            $("#pusher").css("height",height);
+            $("#content").css("height",height);
             var width = $(window).width();
-            $("#wrapper").css("height",height);
-            $("#wrapper").css("width",width);
-            $("#chatWrapper").css("height",height-100);
+            $("body").css("height",height);
+            $("body").css("width",width);
+            //$("#chatWrapper").css("height",height-100);
     });
 
 
@@ -107,18 +121,6 @@ $(document).ready(function() {
                 $("#insertArticleIntoDBForm").ajaxForm(newArticleOptions);
             });
         }
-        if (href === "editPost"){
-            $("#editPost").load("newPost.php?id=1",function(){
-                var newArticleOptions = {
-                    target:     "#message",
-                    url:        "php/db/insertIntoDB.php",
-                    type:       "POST",
-                    beforeSubmit: validate
-                };
-                $("#insertArticleIntoDBForm").ajaxForm(newArticleOptions);
-            });
-        }
-
         $(".list-group-item span").parent().removeClass("active");
         $(this).parent().addClass("active");
         //calling function to load content
@@ -149,7 +151,7 @@ $(document).ready(function() {
     });
 
     $("body").on("click","span.addImageFormField",function(){
-        var imageFormField = '<div class="image well"><input type="hidden" name="imageOrder[]" value="newUpload"><input type="file" class="form-control" name="images[]" id="images"><div class="imageControlButtons"><span class="btn btn-default fa fa-trash-o removeImage"></span><span class="btn btn-default fa fa-chevron-up switchOrderUp"></span><span class="btn btn-default fa fa-chevron-down switchOrderDown"></span></div></div>';
+        var imageFormField = '';
         //$(".imageContainer").append(imageFormField);
         $(imageFormField).appendTo(".imageContainer").slideDown();
     });
@@ -198,6 +200,14 @@ $(document).ready(function() {
                 type:       "POST",
                 beforeSubmit: validate
             };
+			var EN_active = $("#EN_active").attr("value");
+			if (EN_active == 1){
+			    $(".language_toggle_EN").fadeIn();
+			    $(".btn-language").find("i").toggleClass("fa-plus");
+			    $(".btn-language").find("i").toggleClass("fa-minus");	    
+			    $(".btn-language").toggleClass("addEnglishLanguage");
+			    $(".btn-language").toggleClass("removeEnglishLanguage");				
+			}
             $("#insertArticleIntoDBForm").ajaxForm(newArticleOptions);
         });
     });
@@ -222,15 +232,62 @@ $(document).ready(function() {
 			  data: { id: id }
 			  })
 			.done(function() {
+	            //setTimeout(function(){
 	            $("#main section.newsfeed").load("newsfeed.php").fadeIn("fast");
-				$('#modal').modal('hide');
+	  			//},800);
+	  			$('#modal').modal('hide');
 	        });
 		});
     });
     
-    $("body").on("change","input[type=file]",function(){
-	   alert("test");
+    $("body").on("change","form.singleImageUploadForm input[type=file]",function(){
+		var id = $(this).parent().attr("id");
+		var singleImageForm = "#"+id;
+		var uploadSingleImage = {
+                url:        "php/db/uploadSingleImage.php",
+                type:       "POST",
+				success:	function(html){
+					$(html).appendTo(".imageContainer").delay(500).slideDown();
+				}
+        };
+		$(this).parent().ajaxSubmit(uploadSingleImage);
     });
+    
+    $("body").on("click","span#saveNewArticleToDB",function(){  	
+    	var writePost = {
+            url:        "php/db/insertIntoDB.php",
+            type:       "POST",
+            success:       function(result){
+	            $('#message').slideUp();
+	            $(result).appendTo("#message");
+	            $('#message').slideDown();
+				setTimeout(function() {
+					$('#message').slideUp();
+				}, 4000);	            
+
+            }
+    	}
+    	$('#insertArticleIntoDBForm').ajaxSubmit(writePost);
+    	
+    });
+    
+    $("body").on("click",".addEnglishLanguage",function(){
+	    $(".language_toggle_EN").fadeIn();
+		$("#EN_active").attr("value","1");
+	    $(this).find("i").toggleClass("fa-plus");
+	    $(this).find("i").toggleClass("fa-minus");	    
+	    $(this).toggleClass("addEnglishLanguage");
+	    $(this).toggleClass("removeEnglishLanguage");	    
+    });
+    $("body").on("click",".removeEnglishLanguage",function(){
+	    $(".language_toggle_EN").fadeOut();
+		$("#EN_active").attr("value","0");    
+	    $(this).find("i").toggleClass("fa-plus");
+	    $(this).find("i").toggleClass("fa-minus");
+	    $(this).toggleClass("addEnglishLanguage");
+	    $(this).toggleClass("removeEnglishLanguage");		    
+    });
+    
 
 /************************************************\
 

@@ -6,7 +6,3 @@ $(document).ready(function() {
 		 threshold:50
 	});    
 });
-
-document.body.addEventListener('touchmove',function(event){
-  event.preventDefault();
-});

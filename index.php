@@ -6,21 +6,21 @@
     <!-- Bootstrap -->
     <meta charset="UTF-8">
 	<meta name="apple-mobile-web-app-capable" content="yes" />    
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
     <link href="css/style.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
 
-		<!-- Modal -->
+		<!-- !Modal -->
 		<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		        <h4 class="modal-title" id="myModalLabel">DELETE</h4>
 		      </div>
 		      <div class="modal-body">
 		        Möchten sie wirklich löschen?
@@ -33,21 +33,17 @@
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 		
-  
-	  <div id="wrapper">
-	    <nav id="sideBarMenu" class="navbar col-md-2">
-	    	<span class="navbar-brand pull-right"><img class="pull-right" src="images/logo.png"></span>
+		<!-- !wrapper -->
+	    <nav id="menu" class="navbar col-xs-2">
+	    	<span class="navbar-brand pull-right"><img class="pull-right" src="img/logo.png"></span>
 	    	<div class="clearfix"></div>
 			<ul class="list-group">
 	            <li class="list-group-item"><span data-href="newsfeed">Newsfeed</span></li>
-	            <li class="list-group-item"><span data-href="testForm">TestForm</span></li>	            
-	            <li class="list-group-item"><span data-href="chat">Chat</span></li>
 	            <li class="list-group-item"><span data-href="newPost">new Post</span></li>
-	            <li class="list-group-item"><span data-href="newPost">editPost</span></li>
 			</ul>
 			<div class="swiper"></div>
 	    </nav>
-	    <div id="pusher" class="pusher col-md-11 col-md-offset-1">
+	    <div id="content" class="pusher col-xs-11 col-xs-offset-1">
 			<div id="innerPusher">
 	        <article id="main">       
 				<section class="heckliveSection testForm">
@@ -71,11 +67,11 @@
 			</article>
 			</div>
 	    </div>
-	  </div>  
 	    
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.form.js"></script>
 <script type="text/javascript" src="js/jquery.lightBox.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>	  
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/hecklive.js"></script>
 	<?php //INCLUDE ADDITIONAL SCRIPTS DEPENDING ON THE BROWSER

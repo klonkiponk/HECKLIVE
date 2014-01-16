@@ -1,0 +1,2 @@
+[15-Jan-2014 11:43:57 UTC] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home2/admn1772/public_html/heckhaus/newsfeed.php on line 24
+[15-Jan-2014 11:43:58 UTC] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home2/admn1772/public_html/heckhaus/newsfeed.php on line 24

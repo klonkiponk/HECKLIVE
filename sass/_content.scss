@@ -1,93 +1,197 @@
-.outerPost {
-	//border:2px solid orange;
-	padding:15px;
-}
-.post {
-	//background:#ddd;
-	@include boxShadow1();
-	//border:1px solid green;
-	padding-top: 1px;
-//	width:33%;
-	-webkit-column-break-inside: avoid;
-	-moz-column-break-inside: avoid;
-	column-break-inside: avoid;
-	h2 {
-		background:#eee;
-		font-size: 20px;
-		padding:10px;
-		span {
-			display:block;
-			width:50%;
+#main {
+	form {
+	
+	}
+    .img-responsive {
+//		max-width: 475px;
+    }
+	@media (min-width: 1200px) {
+	    .img-responsive {
+//			max-width: 475px;
+	    }
+	}	
+	
+	.minHeight101 {
+		min-height: 105px;
+	}
+	.language_toggle_EN {
+		margin-top: 4px;
+	}
+	.selectHolder {
+		select#subCategory{
+			margin-top:4px;
 		}
 	}
-	.content {
-		padding:10px;
-		text-align: justify;
+	
+	.singleImageUploadForm {
+		visibility: hidden;
 	}
-}
-
-#newsFeed {
-	@include column-count(3);
-	@include column-gap(15px);
-}
-#chatWrapper {
-	overflow:scroll;
-}
-.heckliveSection {
-	display:none;
-}
-.page-header {
-	h1 {
-
+	.noPadding {
+		padding:0;
 	}
-	margin-top: 0;
-	border-bottom-color:red;	
-}
-
-.imageContainer img {
-	max-width:150px;
-	max-height:150px;	
-}
-
-.image.well {
-	padding:4px;
-	min-height: 0;
-	margin-bottom: 4px;
-}
-.imageAlignment {
-	text-align: center;
-}
-
-.imageControlButtons {
-	text-align: right;
-	margin-top: 4px;	
-}
-section.newsfeed {
+	#saveNewArticleToDB {
+		margin-top: 4px;
+	}
+	label {
+		margin-top: 8px;
+		text-transform: uppercase;
+	}
+	.noMarginTop {
+		margin-top: 0;
+	}
+	
+	.outerPost {
+		//border:2px solid orange;
+		padding:15px;
+	}
+	.post {
+		//background:#ddd;
+		@include boxShadow1();
+		//border:1px solid green;
+		padding-top: 1px;
+	//	width:33%;
+		-webkit-column-break-inside: avoid;
+		-moz-column-break-inside: avoid;
+		column-break-inside: avoid;
+		h2 {
+			background:#eee;
+			font-size: 20px;
+			padding:10px;
+			span {
+				display:block;
+				width:50%;
+			}
+		}
+		.content {
+			padding:10px;
+			text-align: justify;
+		}
+	}
+	
+	.bigItem {
+		img {
+			//max-width: 475px !important;
+		}
+	}
+	
+	#newsFeed {
+		@include column-count(3);
+		@include column-gap(15px);
+	}
+	#chatWrapper {
+		overflow:scroll;
+	}
+	.heckliveSection {
+		display:none;
+	}
+	.page-header {
+		h1 {
+	
+		}
+		margin-top: 0;
+		border-bottom-color:red;	
+	}
+	
+	.imageContainer img {
+		max-width:150px;
+		max-height:150px;	
+	}
+	
+	.image.well {
+		padding:4px;
+		min-height: 0;
+		margin-bottom: 8px;
+	}
+	.imageAlignment {
+		text-align: center;
+	}
+	
 	.imageControlButtons {
-		position:absolute;
-		top:0;
-		right:15px;
-		opacity: 0.7;
-		@include transition(opacity 0.5s);
-		&:hover {
-			opacity:1.0;
+		text-align: right;
+		margin-top: 4px;	
+	}
+	section.newsfeed {
+		.imageControlButtons {
+			position:absolute;
+			top:0;
+			right:15px;
+			opacity: 0.7;
+			margin-top: 0;
+			@include transition(opacity 0.5s);
+			&:hover {
+				opacity:1.0;
+			}
 		}
 	}
-}
-.fa-trash-o {
-	&:before {
-		color:red;
-	}
-}
-.fa-chevron-up:before,
-.fa-chevron-down:before,
-.fa-plus {
-    color: #9acfea;
-}
-.fa-plus {
-	&:hover {
+	.fa-trash-o {
 		&:before {
-			color: #9acfea;
+			color:red;
 		}
+	}
+	.fa-chevron-up:before,
+	.fa-chevron-down:before {
+	    color: #9acfea;
+	}
+	.fa-plus {
+	    color: red;
+	}
+	
+	.fa-plus {
+		&:hover {
+			&:before {
+				color: red;
+			}
+		}
+	}
+	
+	.btn-language{
+		.fa-plus {
+			 margin-right:8px;
+			 :before {
+				 color:red;
+			}
+		}
+		.fa-minus {
+			 margin-right:8px;
+			 :before {
+				 color:red;
+			}
+		}	
+	}
+	.btn-language img {
+		height: 17px;
+		margin-top:-4px;
+	}
+	
+	label {
+		font-weight: normal;
+	}
+	
+	.languageFlag {
+		width: 20px;
+		height: 20px;
+		max-width: 20px;	
+	}
+	textarea.languageTextareaDE {
+		background: url('../img/de_trans.png') no-repeat top left;
+	}
+	textarea.languageTextareaEN {
+		background: url('../img/en_trans.png') no-repeat top left;
+		margin-top: 4px;
+	}
+	.languageEN {
+		margin-top: 4px;
+	}
+	.displayNone {
+		display:none;
+	}
+	
+	.enPlaceHolder {
+		display:none;
+	}
+	
+	
+	select {
+		//margin-top: 3px;
 	}
 }

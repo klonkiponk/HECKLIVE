@@ -9,8 +9,56 @@ body {
   body.open {
     background: #f1f1f1; }
 
+/* line 1, ../sass/_layout.scss */
+#content {
+  -webkit-transition: -webkit-transform 1s, opacity 0.5s;
+  -moz-transition: -moz-transform 1s, opacity 0.5s;
+  -o-transition: -o-transform 1s, opacity 0.5s;
+  transition: transform 1s, opacity 0.5s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  padding-right: 0; }
+  /* line 6, ../sass/_layout.scss */
+  #content.open {
+    -webkit-transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
+    -moz-transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
+    -ms-transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
+    -o-transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
+    transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    opacity: 0.8; }
+
+/* line 11, ../sass/_layout.scss */
+#innerPusher {
+  -webkit-box-shadow: 0 0 10px #cccccc;
+  -moz-box-shadow: 0 0 10px #cccccc;
+  box-shadow: 0 0 10px #cccccc;
+  background: #fff;
+  position: relative;
+  padding: 15px;
+  height: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch; }
+
+/* line 20, ../sass/_layout.scss */
+body {
+  overflow: hidden;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -ms-perspective: 1200px;
+  -o-perspective: 1200px;
+  perspective: 1200px;
+  -webkit-perspective-origin: 0% 0%;
+  -moz-perspective-origin: 0% 0%;
+  -ms-perspective-origin: 0% 0%;
+  -o-perspective-origin: 0% 0%;
+  perspective-origin: 0% 0%; }
+
 /* line 1, ../sass/_menu.scss */
-#sideBarMenu {
+#menu {
   background: #fff;
   position: fixed;
   left: 0;
@@ -36,7 +84,7 @@ body {
   padding-top: 45px;
   opacity: 0.5; }
   /* line 17, ../sass/_menu.scss */
-  #sideBarMenu.open {
+  #menu.open {
     -webkit-transform: translate3d(0, 0, 0) rotateY(0deg);
     -moz-transform: translate3d(0, 0, 0) rotateY(0deg);
     -ms-transform: translate3d(0, 0, 0) rotateY(0deg);
@@ -47,19 +95,19 @@ body {
     -moz-box-shadow: 0 0 10px #cccccc;
     box-shadow: 0 0 10px #cccccc; }
     /* line 21, ../sass/_menu.scss */
-    #sideBarMenu.open li {
+    #menu.open li {
       cursor: pointer; }
       /* line 23, ../sass/_menu.scss */
-      #sideBarMenu.open li:hover, #sideBarMenu.open li.active {
+      #menu.open li:hover, #menu.open li.active {
         background: red;
         color: #fff;
         border-color: red; }
   /* line 35, ../sass/_menu.scss */
-  #sideBarMenu .swiper {
+  #menu .swiper {
     width: 100%;
     height: 100%; }
   /* line 40, ../sass/_menu.scss */
-  #sideBarMenu li {
+  #menu li {
     cursor: pointer;
     -webkit-transition: background 0.5s, border-color 0.5s;
     -moz-transition: background 0.5s, border-color 0.5s;
@@ -67,72 +115,59 @@ body {
     transition: background 0.5s, border-color 0.5s;
     padding: 0; }
     /* line 44, ../sass/_menu.scss */
-    #sideBarMenu li:hover, #sideBarMenu li.active {
+    #menu li:hover, #menu li.active {
       background: rgba(255, 0, 0, 0.2);
       color: #fff;
       border-color: rgba(255, 0, 0, 0.2);
       text-shadow: 1px 1px 1px #999999; }
   /* line 51, ../sass/_menu.scss */
-  #sideBarMenu span {
+  #menu span {
     display: block;
     padding: 10px 15px; }
   /* line 55, ../sass/_menu.scss */
-  #sideBarMenu .navbar-brand {
+  #menu .navbar-brand {
     font-size: 150%;
     margin-bottom: 15px;
     padding: 0;
     color: #999; }
     /* line 60, ../sass/_menu.scss */
-    #sideBarMenu .navbar-brand img {
+    #menu .navbar-brand img {
       width: 40%;
       -webkit-transition: width 1.2s;
       -moz-transition: width 1.2s;
       -o-transition: width 1.2s;
       transition: width 1.2s; }
 
-/* line 1, ../sass/_pusher.scss */
-#pusher {
-  -webkit-transition: -webkit-transform 1s, opacity 0.5s;
-  -moz-transition: -moz-transform 1s, opacity 0.5s;
-  -o-transition: -o-transform 1s, opacity 0.5s;
-  transition: transform 1s, opacity 0.5s;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  padding-right: 0; }
-  /* line 6, ../sass/_pusher.scss */
-  #pusher img {
-    max-width: 100%; }
-
-/* line 12, ../sass/_pusher.scss */
-#innerPusher {
-  -webkit-box-shadow: 0 0 10px #cccccc;
-  -moz-box-shadow: 0 0 10px #cccccc;
-  box-shadow: 0 0 10px #cccccc;
-  background: #fff;
-  position: relative;
-  padding: 15px;
-  height: 100%;
-  overflow: scroll; }
-
-/* line 21, ../sass/_pusher.scss */
-#pusher.open {
-  -webkit-transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
-  -moz-transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
-  -ms-transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
-  -o-transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
-  transform: translate3d(10%, 0, 0) rotateY(-30deg) scale3d(0.7, 0.7, 1);
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8; }
-
-/* line 1, ../sass/_content.scss */
-.outerPost {
+/* line 14, ../sass/_content.scss */
+#main .minHeight101 {
+  min-height: 105px; }
+/* line 17, ../sass/_content.scss */
+#main .language_toggle_EN {
+  margin-top: 4px; }
+/* line 21, ../sass/_content.scss */
+#main .selectHolder select#subCategory {
+  margin-top: 4px; }
+/* line 26, ../sass/_content.scss */
+#main .singleImageUploadForm {
+  visibility: hidden; }
+/* line 29, ../sass/_content.scss */
+#main .noPadding {
+  padding: 0; }
+/* line 32, ../sass/_content.scss */
+#main #saveNewArticleToDB {
+  margin-top: 4px; }
+/* line 35, ../sass/_content.scss */
+#main label {
+  margin-top: 8px;
+  text-transform: uppercase; }
+/* line 39, ../sass/_content.scss */
+#main .noMarginTop {
+  margin-top: 0; }
+/* line 43, ../sass/_content.scss */
+#main .outerPost {
   padding: 15px; }
-
-/* line 5, ../sass/_content.scss */
-.post {
+/* line 47, ../sass/_content.scss */
+#main .post {
   -webkit-box-shadow: 0 0 10px #cccccc;
   -moz-box-shadow: 0 0 10px #cccccc;
   box-shadow: 0 0 10px #cccccc;
@@ -140,22 +175,21 @@ body {
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
   column-break-inside: avoid; }
-  /* line 14, ../sass/_content.scss */
-  .post h2 {
+  /* line 56, ../sass/_content.scss */
+  #main .post h2 {
     background: #eee;
     font-size: 20px;
     padding: 10px; }
-    /* line 18, ../sass/_content.scss */
-    .post h2 span {
+    /* line 60, ../sass/_content.scss */
+    #main .post h2 span {
       display: block;
       width: 50%; }
-  /* line 23, ../sass/_content.scss */
-  .post .content {
+  /* line 65, ../sass/_content.scss */
+  #main .post .content {
     padding: 10px;
     text-align: justify; }
-
-/* line 29, ../sass/_content.scss */
-#newsFeed {
+/* line 77, ../sass/_content.scss */
+#main #newsFeed {
   -webkit-column-count: 3;
   -moz-column-count: 3;
   -ms-column-count: 3;
@@ -166,67 +200,99 @@ body {
   -ms-column-gap: 15px;
   -o-column-gap: 15px;
   column-gap: 15px; }
-
-/* line 33, ../sass/_content.scss */
-#chatWrapper {
+/* line 81, ../sass/_content.scss */
+#main #chatWrapper {
   overflow: scroll; }
-
-/* line 36, ../sass/_content.scss */
-.heckliveSection {
+/* line 84, ../sass/_content.scss */
+#main .heckliveSection {
   display: none; }
-
-/* line 39, ../sass/_content.scss */
-.page-header {
+/* line 87, ../sass/_content.scss */
+#main .page-header {
   margin-top: 0;
   border-bottom-color: red; }
-
-/* line 47, ../sass/_content.scss */
-.imageContainer img {
+/* line 95, ../sass/_content.scss */
+#main .imageContainer img {
   max-width: 150px;
   max-height: 150px; }
-
-/* line 52, ../sass/_content.scss */
-.image.well {
+/* line 100, ../sass/_content.scss */
+#main .image.well {
   padding: 4px;
   min-height: 0;
-  margin-bottom: 4px; }
-
-/* line 57, ../sass/_content.scss */
-.imageAlignment {
+  margin-bottom: 8px; }
+/* line 105, ../sass/_content.scss */
+#main .imageAlignment {
   text-align: center; }
-
-/* line 61, ../sass/_content.scss */
-.imageControlButtons {
+/* line 109, ../sass/_content.scss */
+#main .imageControlButtons {
   text-align: right;
   margin-top: 4px; }
-
-/* line 66, ../sass/_content.scss */
-section.newsfeed .imageControlButtons {
+/* line 114, ../sass/_content.scss */
+#main section.newsfeed .imageControlButtons {
   position: absolute;
   top: 0;
   right: 15px;
   opacity: 0.7;
+  margin-top: 0;
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s; }
-  /* line 72, ../sass/_content.scss */
-  section.newsfeed .imageControlButtons:hover {
+  /* line 121, ../sass/_content.scss */
+  #main section.newsfeed .imageControlButtons:hover {
     opacity: 1.0; }
-
-/* line 78, ../sass/_content.scss */
-.fa-trash-o:before {
+/* line 127, ../sass/_content.scss */
+#main .fa-trash-o:before {
   color: red; }
-
-/* line 84, ../sass/_content.scss */
-.fa-chevron-up:before,
-.fa-chevron-down:before,
-.fa-plus {
+/* line 132, ../sass/_content.scss */
+#main .fa-chevron-up:before,
+#main .fa-chevron-down:before {
   color: #9acfea; }
-
-/* line 89, ../sass/_content.scss */
-.fa-plus:hover:before {
-  color: #9acfea; }
+/* line 135, ../sass/_content.scss */
+#main .fa-plus {
+  color: red; }
+/* line 141, ../sass/_content.scss */
+#main .fa-plus:hover:before {
+  color: red; }
+/* line 148, ../sass/_content.scss */
+#main .btn-language .fa-plus {
+  margin-right: 8px; }
+  /* line 150, ../sass/_content.scss */
+  #main .btn-language .fa-plus :before {
+    color: red; }
+/* line 154, ../sass/_content.scss */
+#main .btn-language .fa-minus {
+  margin-right: 8px; }
+  /* line 156, ../sass/_content.scss */
+  #main .btn-language .fa-minus :before {
+    color: red; }
+/* line 161, ../sass/_content.scss */
+#main .btn-language img {
+  height: 17px;
+  margin-top: -4px; }
+/* line 166, ../sass/_content.scss */
+#main label {
+  font-weight: normal; }
+/* line 170, ../sass/_content.scss */
+#main .languageFlag {
+  width: 20px;
+  height: 20px;
+  max-width: 20px; }
+/* line 175, ../sass/_content.scss */
+#main textarea.languageTextareaDE {
+  background: url("../img/de_trans.png") no-repeat top left; }
+/* line 178, ../sass/_content.scss */
+#main textarea.languageTextareaEN {
+  background: url("../img/en_trans.png") no-repeat top left;
+  margin-top: 4px; }
+/* line 182, ../sass/_content.scss */
+#main .languageEN {
+  margin-top: 4px; }
+/* line 185, ../sass/_content.scss */
+#main .displayNone {
+  display: none; }
+/* line 189, ../sass/_content.scss */
+#main .enPlaceHolder {
+  display: none; }
 
 @font-face {
   font-family: "DIN";
@@ -2793,87 +2859,64 @@ h1, h2, h3, h4, h5, h6 {
   -moz-animation-delay: 1s;
   animation-delay: 1s; }
 
-/* line 1, ../sass/_wrapper.scss */
-#wrapper {
-  overflow: hidden;
-  -webkit-perspective: 1200px;
-  -moz-perspective: 1200px;
-  -ms-perspective: 1200px;
-  -o-perspective: 1200px;
-  perspective: 1200px;
-  -webkit-perspective-origin: 0% 0%;
-  -moz-perspective-origin: 0% 0%;
-  -ms-perspective-origin: 0% 0%;
-  -o-perspective-origin: 0% 0%;
-  perspective-origin: 0% 0%; }
-
 /* line 1, ../sass/_chat.scss */
 .chatUser {
   display: inline-block;
   width: 150px; }
 
-/* line 8, ../sass/_heckhausWeb.scss */
-.medTxt h2 {
+/* line 9, ../sass/_heckhausWeb.scss */
+#main .medTxt h2 {
   font-size: 18px;
   margin-top: 0; }
-
-/* line 15, ../sass/_heckhausWeb.scss */
-.smallItem img {
+/* line 16, ../sass/_heckhausWeb.scss */
+#main .smallItem img {
   width: 213px;
   height: 136px; }
-/* line 19, ../sass/_heckhausWeb.scss */
-.smallItem h2 {
+/* line 20, ../sass/_heckhausWeb.scss */
+#main .smallItem h2 {
   margin-top: 7px; }
-
-/* line 23, ../sass/_heckhausWeb.scss */
-.divider {
+/* line 24, ../sass/_heckhausWeb.scss */
+#main .divider {
   display: block;
   background-image: url("../img/bggrey.gif");
   width: 100% !important;
   height: 100px;
   clear: both; }
-
-/* line 30, ../sass/_heckhausWeb.scss */
-a {
+/* line 31, ../sass/_heckhausWeb.scss */
+#main a {
   color: #333; }
-  /* line 32, ../sass/_heckhausWeb.scss */
-  a:hover {
+  /* line 33, ../sass/_heckhausWeb.scss */
+  #main a:hover {
     color: red;
     text-decoration: none; }
-
-/* line 37, ../sass/_heckhausWeb.scss */
-section.abstract {
+/* line 38, ../sass/_heckhausWeb.scss */
+#main section.abstract {
   margin-bottom: 25px; }
-
-/* line 40, ../sass/_heckhausWeb.scss */
-hr {
+/* line 41, ../sass/_heckhausWeb.scss */
+#main hr {
   border-top-color: #999; }
-
-/* line 44, ../sass/_heckhausWeb.scss */
-.row hr {
+/* line 45, ../sass/_heckhausWeb.scss */
+#main .row hr {
   margin-left: 15px;
   margin-right: 15px; }
-
-/* line 49, ../sass/_heckhausWeb.scss */
-.col-md-3 h2 {
+/* line 50, ../sass/_heckhausWeb.scss */
+#main .col-xs-3 h2 {
   margin-bottom: 0;
   padding-bottom: 0;
   font-size: 16px;
   font-weight: 600; }
-/* line 55, ../sass/_heckhausWeb.scss */
-.col-md-3 h3 {
+/* line 56, ../sass/_heckhausWeb.scss */
+#main .col-xs-3 h3 {
   color: #999;
   margin-top: 0;
   padding-top: 0;
   font-size: 14px; }
-
-/* line 64, ../sass/_heckhausWeb.scss */
-div.caption h2 {
+/* line 65, ../sass/_heckhausWeb.scss */
+#main div.caption h2 {
   font-size: 18px;
   margin-top: 10px; }
-
-/* line 71, ../sass/_heckhausWeb.scss */
-.bigItem h2, .bigItem h3, .smallItem h2, .smallItem h3 {
+/* line 72, ../sass/_heckhausWeb.scss */
+#main .bigItem h2, #main .bigItem h3, #main .smallItem h2, #main .smallItem h3 {
   text-transform: uppercase; }
 
 /* line 1, ../sass/_lightbox.scss */
@@ -3068,7 +3111,7 @@ body:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1; }
 
-/* line 26, ../sass/style.scss */
+/* line 24, ../sass/style.scss */
 .form-control:focus {
   -webkit-box-shadow: 0 0 7px rgba(255, 0, 0, 0.5);
   -moz-box-shadow: 0 0 7px rgba(255, 0, 0, 0.5);
